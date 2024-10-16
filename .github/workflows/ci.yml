@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: docker build -t tetrisapp .
+
+      - name: Run Docker container
+        run: docker run tetrisapp
+
