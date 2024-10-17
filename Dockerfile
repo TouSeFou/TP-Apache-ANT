@@ -30,5 +30,10 @@ COPY . /app
 # Build the project using Ant
 RUN ant
 
+RUN echo 'Build success'
+
+RUN ant test
+RUN echo 'Test success'
+
 # Default command for the container
 CMD ["sh", "-c", "ls -l /app && cd dist && ls"]
